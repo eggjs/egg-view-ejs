@@ -58,6 +58,24 @@ exports.ejs = function* () {
 
 The file will be compiled and cached, you can change `config.ejs.cache = false` to disable cache, it's disable in local env by default.
 
+### Include
+
+You can include both relative and absolute file.
+
+Relative file is resolve from current file path.
+
+```
+// app/view/a.ejs include app/view/b.ejs
+<% include b.ejs %>
+```
+
+Absolute file is resolve from `app/view`.
+
+```
+// app/view/home.ejs include app/view/partial/menu.ejs
+<% include /partial/menu.ejs %>
+```
+
 ## Configuration
 
 see [config/config.default.js](config/config.default.js) for more detail.
