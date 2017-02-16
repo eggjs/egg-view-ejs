@@ -1,5 +1,5 @@
 'use strict';
 
-exports.ejs = {
+exports.view = {
   cache: false,
 };

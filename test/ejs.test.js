@@ -103,4 +103,30 @@ describe('test/egg-view-ejs.test.js', () => {
     });
   });
 
+  describe('no cache', () => {
+    let app;
+    before(() => {
+      mm.env('local');
+      app = mm.app({
+        baseDir: 'apps/ejs-view',
+      });
+      return app.ready();
+    });
+    after(() => app.close());
+
+    it('should render without cache', function* () {
+      const cacheFile = path.join(fixtures, 'apps/ejs-view/app/view/cache.ejs');
+      yield fs.writeFile(cacheFile, '1');
+      yield request(app.callback())
+        .get('/cache')
+        .expect('1')
+        .expect(200);
+
+      yield fs.writeFile(cacheFile, '2');
+      yield request(app.callback())
+        .get('/cache')
+        .expect('2')
+        .expect(200);
+    });
+  });
 });
