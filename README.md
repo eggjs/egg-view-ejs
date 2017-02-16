@@ -34,7 +34,7 @@ $ npm i egg-view-ejs --save
 // {app_root}/config/plugin.js
 exports.view = {
   enable: true,
-  package: 'egg-egg-view-ejs',
+  package: 'egg-view-ejs',
 };
 ```
 
