@@ -3,7 +3,7 @@
 exports.renderWithLocals = function* (ctx) {
   yield ctx.render('locals.ejs', {
     data: 'world',
-  })
+  });
 };
 
 exports.include = function* (ctx) {

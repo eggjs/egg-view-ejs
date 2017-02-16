@@ -56,12 +56,11 @@ exports.ejs = function* () {
 };
 ```
 
+The file will be compiled and cached, you can change `config.ejs.cache = false` to disable cache, it's disable in local env by default.
+
 ## Configuration
 
 see [config/config.default.js](config/config.default.js) for more detail.
-
-## Example
-
 
 ## Questions & Suggestions
 
