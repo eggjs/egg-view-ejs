@@ -7,7 +7,7 @@ exports.renderWithLocals = function* (ctx) {
 };
 
 exports.include = function* (ctx) {
-  yield ctx.render('include.ejs');
+  yield ctx.render('include/index.ejs');
 };
 
 exports.renderWithHelper = function* (ctx) {

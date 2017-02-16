@@ -39,9 +39,6 @@
     "autod": "autod"
   },
   "files": [
-    "index.js",
-    "app.js",
-    "agent.js",
     "config",
     "app",
     "lib"
@@ -57,6 +54,6 @@
     "url": "https://github.com/eggjs/egg/issues"
   },
   "homepage": "https://github.com/eggjs/egg-egg-view-ejs#readme",
-  "author": "",
+  "author": "popomore <sakura9515@gmail.com>",
   "license": "MIT"
 }
