@@ -36,6 +36,16 @@ exports.view = {
   enable: true,
   package: 'egg-view-ejs',
 };
+
+// {app_root}/config/config.default.js
+exports.view = {
+  mapping: {
+    '.ejs': 'ejs',
+  },
+};
+
+// ejs config
+exports.ejs = {};
 ```
 
 Create a ejs file
