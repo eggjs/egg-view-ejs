@@ -33,16 +33,16 @@ exports.error = function* (ctx) {
 exports.renderStringWithData = function* (ctx) {
   ctx.body = yield ctx.renderString('hello <%= data %>', {
     data: 'world',
-  }, { viewEngine: 'ejs' });
+  });
 };
 
 exports.renderStringWithHelper = function* (ctx) {
-  ctx.body = yield ctx.renderString('hello <%= helper.data() %>', {}, { viewEngine: 'ejs' });
+  ctx.body = yield ctx.renderString('hello <%= helper.data() %>');
 };
 
 exports.renderStringError = function* (ctx) {
   try {
-    yield ctx.renderString('<% a', {}, { viewEngine: 'ejs' });
+    yield ctx.renderString('<% a');
   } catch (err) {
     ctx.body = err.message;
   }
