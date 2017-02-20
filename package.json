@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "egg view plugin for ejs",
   "eggPlugin": {
-    "name": "ejs"
+    "name": "ejs",
+    "dependencies": [
+      "view"
+    ]
   },
   "keywords": [
     "egg",
