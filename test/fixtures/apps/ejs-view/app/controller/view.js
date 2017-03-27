@@ -47,3 +47,9 @@ exports.renderStringError = function* (ctx) {
     ctx.body = err.message;
   }
 };
+
+exports.renderWithLayout = function* (ctx) {
+  yield ctx.render('ejs.html', {}, {
+    layout: 'layout.html',
+  });
+};

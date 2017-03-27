@@ -50,14 +50,14 @@ exports.ejs = {};
 
 Create a ejs file
 
-```
+```js
 // app/view/hello.ejs
 hello <%= data %>
 ```
 
 Render it
 
-```
+```js
 // app/controller/render.js
 exports.ejs = function* () {
   yield ctx.render('hello.ejs', {
@@ -74,16 +74,39 @@ You can include both relative and absolute file.
 
 Relative file is resolve from current file path.
 
-```
+```html
 // app/view/a.ejs include app/view/b.ejs
 <% include b.ejs %>
 ```
 
 Absolute file is resolve from `app/view`.
 
-```
+```html
 // app/view/home.ejs include app/view/partial/menu.ejs
 <% include /partial/menu.ejs %>
+```
+
+### Layout
+
+You can render a view with layout also:
+
+```js
+// app/view/layout.ejs
+
+<%- body%>
+
+// app/controller/render.js
+exports.ejs = function* () {
+  const locals = {
+    data: 'world',
+  };
+
+  const viewOptions = {
+    layout: 'layout.ejs'
+  };
+
+  yield ctx.render('hello.ejs', locals, viewOptions);
+};
 ```
 
 ## Configuration

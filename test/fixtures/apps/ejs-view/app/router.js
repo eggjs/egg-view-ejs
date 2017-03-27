@@ -10,4 +10,5 @@ module.exports = app => {
   app.get('/render-string', 'view.renderStringWithData');
   app.get('/render-string-helper', 'view.renderStringWithHelper');
   app.get('/render-string-error', 'view.renderStringError');
+  app.get('/render-layout', 'view.renderWithLayout');
 };
