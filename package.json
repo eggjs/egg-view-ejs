@@ -1,6 +1,6 @@
 {
   "name": "egg-view-ejs",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "egg view plugin for ejs",
   "eggPlugin": {
     "name": "ejs",

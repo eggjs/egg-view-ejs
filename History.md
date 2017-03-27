@@ -1,4 +1,10 @@
 
+1.1.0 / 2017-03-27
+==================
+
+  * feat: add layout (#6)
+  * docs: can't overrite default `view` plugin (#5)
+
 1.0.1 / 2017-02-23
 ==================
 
