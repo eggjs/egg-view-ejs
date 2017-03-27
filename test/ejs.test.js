@@ -63,6 +63,13 @@ describe('test/egg-view-ejs.test.js', () => {
         .expect(200);
     });
 
+    it('should render with layout', () => {
+      return request(app.callback())
+        .get('/render-layout')
+        .expect('in layout\nhello world\n\n')
+        .expect(200);
+    });
+
     it('should render error', () => {
       return request(app.callback())
         .get('/error')
