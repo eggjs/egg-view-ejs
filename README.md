@@ -59,7 +59,7 @@ Render it
 
 ```js
 // app/controller/render.js
-exports.ejs = function* () {
+exports.ejs = function* (ctx) {
   yield ctx.render('hello.ejs', {
     data: 'world',
   });
@@ -96,7 +96,7 @@ You can render a view with layout also:
 <%- body%>
 
 // app/controller/render.js
-exports.ejs = function* () {
+exports.ejs = function* (ctx) {
   const locals = {
     data: 'world',
   };
