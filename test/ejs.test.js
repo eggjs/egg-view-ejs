@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const request = require('supertest');
 const mm = require('egg-mock');
 const fs = require('mz/fs');
 
@@ -21,21 +20,21 @@ describe('test/egg-view-ejs.test.js', () => {
     after(() => app.close());
 
     it('should render with locals', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/locals')
         .expect('hello world\n')
         .expect(200);
     });
 
     it('should render with include', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/include')
         .expect('hello header\nhello footer\n')
         .expect(200);
     });
 
     it('should render with helper', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/helper')
         .expect('hello world\n')
         .expect(200);
@@ -44,34 +43,34 @@ describe('test/egg-view-ejs.test.js', () => {
     it('should render with cache', function* () {
       const cacheFile = path.join(fixtures, 'apps/ejs-view/app/view/cache.ejs');
       yield fs.writeFile(cacheFile, '1');
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
 
       yield fs.writeFile(cacheFile, '2');
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
     });
 
     it('should render with html extension', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/htmlext')
         .expect('hello world\n')
         .expect(200);
     });
 
     it('should render with layout', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/render-layout')
         .expect('in layout\nhello world\n\n')
         .expect(200);
     });
 
     it('should render error', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/error')
         .expect('Could not find matching close tag for "<%".')
         .expect(200);
@@ -89,21 +88,21 @@ describe('test/egg-view-ejs.test.js', () => {
     after(() => app.close());
 
     it('should renderString with data', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/render-string')
         .expect('hello world')
         .expect(200);
     });
 
     it('should renderString with helper', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/render-string-helper')
         .expect('hello world')
         .expect(200);
     });
 
     it('should renderString error', () => {
-      return request(app.callback())
+      return app.httpRequest()
         .get('/render-string-error')
         .expect('Could not find matching close tag for "<%".')
         .expect(200);
@@ -124,13 +123,13 @@ describe('test/egg-view-ejs.test.js', () => {
     it('should render without cache', function* () {
       const cacheFile = path.join(fixtures, 'apps/ejs-view/app/view/cache.ejs');
       yield fs.writeFile(cacheFile, '1');
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
 
       yield fs.writeFile(cacheFile, '2');
-      yield request(app.callback())
+      yield app.httpRequest()
         .get('/cache')
         .expect('2')
         .expect(200);
