@@ -59,8 +59,8 @@ Render it
 
 ```js
 // app/controller/render.js
-exports.ejs = function* (ctx) {
-  yield ctx.render('hello.ejs', {
+exports.ejs = async ctx => {
+  await ctx.render('hello.ejs', {
     data: 'world',
   });
 };
@@ -96,7 +96,7 @@ You can render a view with layout also:
 <%- body%>
 
 // app/controller/render.js
-exports.ejs = function* (ctx) {
+exports.ejs = async ctx => {
   const locals = {
     data: 'world',
   };
@@ -105,7 +105,7 @@ exports.ejs = function* (ctx) {
     layout: 'layout.ejs'
   };
 
-  yield ctx.render('hello.ejs', locals, viewOptions);
+  await ctx.render('hello.ejs', locals, viewOptions);
 };
 ```
 
