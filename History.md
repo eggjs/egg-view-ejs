@@ -1,4 +1,11 @@
 
+2.0.1 / 2020-02-03
+==================
+
+**others**
+  * [[`5b4e4d0`](http://github.com/eggjs/egg-view-ejs/commit/5b4e4d0dac54a7a3046a5370dc0db160637aae46)] - chore: update deps (#11) (TZ | 天猪 <<atian25@qq.com>>)
+  * [[`69a80b2`](http://github.com/eggjs/egg-view-ejs/commit/69a80b25a21072fd6fa3fdf9468490268525ebbb)] - chore: fix typo (#9) (sinchang <<sinchang@foxmail.com>>)
+
 2.0.0 / 2017-11-15
 ==================
 
