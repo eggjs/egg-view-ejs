@@ -16,16 +16,16 @@
     "ejs"
   ],
   "dependencies": {
-    "ejs": "^2.5.7"
+    "ejs": "^2"
   },
   "devDependencies": {
-    "autod": "^3.0.1",
-    "egg": "next",
-    "egg-bin": "^4.3.5",
-    "egg-ci": "^1.8.0",
-    "egg-mock": "^3.13.1",
-    "eslint": "^4.11.0",
-    "eslint-config-egg": "^5.1.1",
+    "autod": "^3.1.0",
+    "egg": "2",
+    "egg-bin": "^4.14.1",
+    "egg-ci": "^1.13.1",
+    "egg-mock": "^3.25.1",
+    "eslint": "^6.8.0",
+    "eslint-config-egg": "^8.0.1",
     "mz": "^2.7.0",
     "supertest": "^3.0.0",
     "webstorm-disable-index": "^1.2.0"
@@ -48,7 +48,7 @@
     "app.js"
   ],
   "ci": {
-    "version": "8, 9"
+    "version": "8, 10, 12"
   },
   "repository": {
     "type": "git",
