@@ -29,7 +29,7 @@ describe('test/egg-view-ejs.test.js', () => {
     it('should render with include', () => {
       return app.httpRequest()
         .get('/include')
-        .expect('hello header\nhello footer\n')
+        .expect('hello header\n\nhello footer\n')
         .expect(200);
     });
 
