@@ -16,22 +16,19 @@
     "ejs"
   ],
   "dependencies": {
-    "ejs": "^3.1.8"
+    "ejs": "^3"
   },
   "devDependencies": {
-    "autod": "^3.1.0",
-    "egg": "2",
-    "egg-bin": "^4.14.1",
-    "egg-ci": "^1.13.1",
-    "egg-mock": "^3.25.1",
-    "eslint": "^6.8.0",
-    "eslint-config-egg": "^8.0.1",
-    "mz": "^2.7.0",
-    "supertest": "^3.0.0",
-    "webstorm-disable-index": "^1.2.0"
+    "autod": "^3",
+    "egg": "^2",
+    "egg-bin": "^4",
+    "egg-ci": "^2",
+    "egg-mock": "^4",
+    "eslint": "^8",
+    "eslint-config-egg": "^12"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=14.0.0"
   },
   "scripts": {
     "test": "npm run lint -- --fix && npm run test-local",
@@ -48,7 +45,8 @@
     "app.js"
   ],
   "ci": {
-    "version": "8, 10, 12"
+    "version": "14, 16",
+    "type": "github"
   },
   "repository": {
     "type": "git",

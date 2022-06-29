@@ -2,7 +2,7 @@
 
 const path = require('path');
 const mm = require('egg-mock');
-const fs = require('mz/fs');
+const fs = require('fs').promises;
 
 const fixtures = path.join(__dirname, 'fixtures');
 
@@ -22,34 +22,34 @@ describe('test/egg-view-ejs.test.js', () => {
     it('should render with locals', () => {
       return app.httpRequest()
         .get('/locals')
-        .expect('hello world\n')
+        .expect(/hello world\r?\n/)
         .expect(200);
     });
 
     it('should render with include', () => {
       return app.httpRequest()
         .get('/include')
-        .expect('hello header\n\nhello footer\n')
+        .expect(/hello header\r?\n\r?\nhello footer\r?\n/)
         .expect(200);
     });
 
     it('should render with helper', () => {
       return app.httpRequest()
         .get('/helper')
-        .expect('hello world\n')
+        .expect(/hello world\r?\n/)
         .expect(200);
     });
 
-    it('should render with cache', function* () {
+    it('should render with cache', async () => {
       const cacheFile = path.join(fixtures, 'apps/ejs-view/app/view/cache.ejs');
-      yield fs.writeFile(cacheFile, '1');
-      yield app.httpRequest()
+      await fs.writeFile(cacheFile, '1');
+      await app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
 
-      yield fs.writeFile(cacheFile, '2');
-      yield app.httpRequest()
+      await fs.writeFile(cacheFile, '2');
+      await app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
@@ -58,14 +58,14 @@ describe('test/egg-view-ejs.test.js', () => {
     it('should render with html extension', () => {
       return app.httpRequest()
         .get('/htmlext')
-        .expect('hello world\n')
+        .expect(/hello world\r?\n/)
         .expect(200);
     });
 
     it('should render with layout', () => {
       return app.httpRequest()
         .get('/render-layout')
-        .expect('in layout\nhello world\n\n')
+        .expect(/in layout\r?\nhello world\r?\n\r?\n/)
         .expect(200);
     });
 
@@ -120,16 +120,16 @@ describe('test/egg-view-ejs.test.js', () => {
     });
     after(() => app.close());
 
-    it('should render without cache', function* () {
+    it('should render without cache', async () => {
       const cacheFile = path.join(fixtures, 'apps/ejs-view/app/view/cache.ejs');
-      yield fs.writeFile(cacheFile, '1');
-      yield app.httpRequest()
+      await fs.writeFile(cacheFile, '1');
+      await app.httpRequest()
         .get('/cache')
         .expect('1')
         .expect(200);
 
-      yield fs.writeFile(cacheFile, '2');
-      yield app.httpRequest()
+      await fs.writeFile(cacheFile, '2');
+      await app.httpRequest()
         .get('/cache')
         .expect('2')
         .expect(200);
