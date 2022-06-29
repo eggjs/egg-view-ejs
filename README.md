@@ -1,24 +1,12 @@
 # egg-view-ejs
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
-[![npm download][download-image]][download-url]
+[![NPM version](https://img.shields.io/npm/v/egg-view-ejs.svg?style=flat-square)](https://npmjs.org/package/egg-view-ejs)
+[![NPM quality](http://npm.packagequality.com/shield/egg-view-ejs.svg?style=flat-square)](http://packagequality.com/#?package=egg-view-ejs)
+[![NPM download](https://img.shields.io/npm/dm/egg-view-ejs.svg?style=flat-square)](https://npmjs.org/package/egg-view-ejs)
 
-[npm-image]: https://img.shields.io/npm/v/egg-view-ejs.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/egg-view-ejs
-[travis-image]: https://img.shields.io/travis/eggjs/egg-view-ejs.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-view-ejs
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-view-ejs.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-view-ejs?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-view-ejs.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-view-ejs
-[snyk-image]: https://snyk.io/test/npm/egg-view-ejs/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/egg-view-ejs
-[download-image]: https://img.shields.io/npm/dm/egg-view-ejs.svg?style=flat-square
-[download-url]: https://npmjs.org/package/egg-view-ejs
+[![Continuous Integration](https://github.com/eggjs/egg-view-ejs/actions/workflows/nodejs.yml/badge.svg)](https://github.com/eggjs/egg-view-ejs/actions/workflows/nodejs.yml)
+[![Test coverage](https://img.shields.io/codecov/c/github/eggjs/egg-view-ejs.svg?style=flat-square)](https://codecov.io/gh/eggjs/egg-view-ejs)
+
 
 egg view plugin for [ejs].
 
@@ -43,9 +31,6 @@ exports.view = {
     '.ejs': 'ejs',
   },
 };
-
-// ejs config
-exports.ejs = {};
 ```
 
 Create a ejs file
@@ -76,14 +61,14 @@ Relative file is resolve from current file path.
 
 ```html
 // app/view/a.ejs include app/view/b.ejs
-<% include b.ejs %>
+<% include('b.ejs') %>
 ```
 
 Absolute file is resolve from `app/view`.
 
 ```html
 // app/view/home.ejs include app/view/partial/menu.ejs
-<% include /partial/menu.ejs %>
+<% include('/partial/menu.ejs') %>
 ```
 
 ### Layout
@@ -93,7 +78,7 @@ You can render a view with layout also:
 ```js
 // app/view/layout.ejs
 
-<%- body%>
+<% body %>
 
 // app/controller/render.js
 exports.ejs = async ctx => {
