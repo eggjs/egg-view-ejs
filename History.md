@@ -1,4 +1,11 @@
 
+3.0.0 / 2022-06-29
+==================
+
+**others**
+  * [[`22ec14d`](http://github.com/eggjs/egg-view-ejs/commit/22ec14deeb2752814b1522bd44d773025c51d0b3)] - deps: update to 14.x (#14) (TZ | 天猪 <<atian25@qq.com>>)
+  * [[`0c89549`](http://github.com/eggjs/egg-view-ejs/commit/0c895495791f8a1b500387a6c3178f973b09796c)] - [BREAK_CHANGE] feat: update ejs@3 (#13) (En Yang Du <<377153400@qq.com>>)
+
 2.0.1 / 2020-02-03
 ==================
 
